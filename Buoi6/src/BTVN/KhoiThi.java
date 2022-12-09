@@ -21,6 +21,9 @@ public class KhoiThi {
 		
 		System.out.println("Mon 3 la:");
 		setMon3(sc.nextLine());
+		
+		setKt(getMon1(),getMon2(),getMon3());
+		
 	}
 	public KhoiThi() {
 		
@@ -31,21 +34,6 @@ public class KhoiThi {
 		this.mon3 = mon3;
 	}
 	
-	public void thiKhoi() {
-		String tmp;
-		if(getMon1().equals("Van") && getMon2().equals("Su") && getMon3().equals("Dia")) {
-			setKt(tmp = "C");
-		}else if(getMon1().equals("Toan") && getMon2().equals("Ly") && getMon3().equals("Hoa"))
-			setKt(tmp = "B");
-		else 
-			setKt(tmp = "A");
-	}
-	public static void main(String[] args) {
-		KhoiThi kt6 = new KhoiThi("Toan","Ly","Hoa");
-		KhoiThi khoiThi = new KhoiThi();
-		khoiThi.thiKhoi();
-		System.out.println(kt6.getKt());
-	}
 	public String getMon1() {
 		return mon1;
 	}
@@ -58,6 +46,7 @@ public class KhoiThi {
 		return mon3;
 	}
 	public String getKt() {
+		
 		return kt;
 	}
 
@@ -72,16 +61,15 @@ public class KhoiThi {
 	public void setMon3(String mon3) {
 		this.mon3 = mon3;
 	}
-	public void setKt(String kt) {
-		this.kt = kt;
+	public void setKt(String mon1,String mon2,String mon3) {
+		if(getMon1().equalsIgnoreCase("Van") && getMon2().equalsIgnoreCase("Su") && getMon3().equalsIgnoreCase("Dia")) {
+			this.kt = "C";
+		}else if(getMon1().equalsIgnoreCase("Toan") && getMon2().equalsIgnoreCase("Ly") && getMon3().equalsIgnoreCase("Hoa"))
+			this.kt = "A";
+		else this.kt = "B";
 	}
 
 
-//	public static void main(String[] args) {
-//		KhoiThi kt3 = new KhoiThi();
-//		kt3.nhapMonThi();
-//		
-//		
-//	}
-//	
+
+	
 }

@@ -1,9 +1,11 @@
 package Bai3;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class student {
-	static ArrayList<student> ListHS = new ArrayList<>();
+	static Scanner sc = new Scanner(System.in);
+	//static ArrayList<student> ListHS = new ArrayList<>();
 	//constant
 	public static final String LASTNAME = "NO LASTNAME";
 	public static final byte AGE = 0;
@@ -11,8 +13,12 @@ public class student {
 	
 	//properties
 	private String lastName;
+	
 	private byte age;
+	
 	private String address;
+	
+	private Lop lop = new Lop();
 	
 	//Constructor
 	public student() {
@@ -52,15 +58,23 @@ public class student {
 		return this;
 	}
 
-	//orther's method
-	@Override
-	public String toString() {
-		return "student [lastName=" + lastName + ", age=" + age + ", address=" + address + "]";
+	public void input() {
+		//sc.nextLine();
+		System.out.println("input student's name :");
+		setLastName(sc.nextLine());
+		
+		System.out.println("input student's age :");
+		setAge(sc.nextByte());
+		
+		sc.nextLine();
+		System.out.println("input student's address :");
+		setAddress(sc.nextLine());
+		
+		lop.input();
 	}
-
-	public static void main(String[] args) {
-		
-		
-		
+	
+	public void output() {
+		System.out.printf("%-20s %-20d %-20s",lastName,age,address);
+		lop.output();
 	}
 }
